@@ -1,10 +1,21 @@
-import type { Icon, ICredentialType, INodeProperties } from "n8n-workflow";
+import type {
+  Icon,
+  ICredentialTestRequest,
+  ICredentialType,
+  INodeProperties,
+} from "n8n-workflow";
 
 export class DoclingServeApi implements ICredentialType {
   name = "doclingServeApi";
   displayName = "Docling Serve API";
 
-  testedBy = "doclingServe";
+  test: ICredentialTestRequest = {
+    request: {
+      baseURL: '={{$credentials.baseUrl}}',
+      url: '/health',
+      method: 'GET',
+    },
+  };
   documentationUrl = "https://github.com/docling-project/docling-serve";
   icon: Icon = "file:../icons/docling-serve.svg";
   properties: INodeProperties[] = [

@@ -1,4 +1,3 @@
-/* eslint-disable @n8n/community-nodes/no-restricted-imports */
 import type { INodeProperties } from "n8n-workflow";
 import { CHUNKER_TYPES } from "../../constants";
 
