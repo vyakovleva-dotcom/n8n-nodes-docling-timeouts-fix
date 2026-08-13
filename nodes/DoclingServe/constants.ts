@@ -7,8 +7,12 @@ export const ENDPOINTS = {
 	RESULT: '/v1/result',
 	CHUNK_HYBRID_SOURCE: '/v1/chunk/hybrid/source',
 	CHUNK_HYBRID_FILE: '/v1/chunk/hybrid/file',
+	CHUNK_HYBRID_SOURCE_ASYNC: '/v1/chunk/hybrid/source/async',
+	CHUNK_HYBRID_FILE_ASYNC: '/v1/chunk/hybrid/file/async',
 	CHUNK_HIERARCHICAL_SOURCE: '/v1/chunk/hierarchical/source',
 	CHUNK_HIERARCHICAL_FILE: '/v1/chunk/hierarchical/file',
+	CHUNK_HIERARCHICAL_SOURCE_ASYNC: '/v1/chunk/hierarchical/source/async',
+	CHUNK_HIERARCHICAL_FILE_ASYNC: '/v1/chunk/hierarchical/file/async',
 	HEALTH: '/health',
 } as const;
 
@@ -32,7 +36,7 @@ export const CHUNKER_TYPES = {
 export type ChunkerType = (typeof CHUNKER_TYPES)[keyof typeof CHUNKER_TYPES];
 
 export const POLLING = {
-	DEFAULT_MAX_ATTEMPTS: 60,
+	DEFAULT_MAX_ATTEMPTS: 300,
 	DEFAULT_INTERVAL_MS: 2000,
 	COMPLETED_STATUSES: ['success', 'failure'],
 } as const;
@@ -49,6 +53,8 @@ export const OPERATIONS = {
 	CHUNK: {
 		CHUNK_FROM_URL: 'chunkFromUrl',
 		CHUNK_FROM_FILE: 'chunkFromFile',
+		CHUNK_FROM_URL_ASYNC: 'chunkFromUrlAsync',
+		CHUNK_FROM_FILE_ASYNC: 'chunkFromFileAsync',
 	},
 	SYSTEM: {
 		HEALTH_CHECK: 'healthCheck',
