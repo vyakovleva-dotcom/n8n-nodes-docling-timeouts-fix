@@ -15,6 +15,20 @@ export async function prepareBinaryData(
 	};
 }
 
+export async function buildFileFormData(
+	this: IExecuteFunctions,
+	itemIndex: number,
+	binaryPropertyName: string,
+): Promise<FormData> {
+	const binaryData = await prepareBinaryData.call(this, itemIndex, binaryPropertyName);
+	const formData = new FormData();
+	const blob = new Blob([Buffer.from(binaryData.base64, 'base64')], {
+		type: binaryData.mimeType,
+	});
+	formData.append('files', blob, binaryData.filename);
+	return formData;
+}
+
 export function isBinaryDataAvailable(binaryData: IBinaryData | undefined): boolean {
 	return binaryData !== undefined && binaryData.data !== undefined;
 }
