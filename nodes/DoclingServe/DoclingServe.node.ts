@@ -18,7 +18,9 @@ import {
 import { chunkDescription } from "./resources/chunk";
 import {
   chunkFromFile,
+  chunkFromFileAsync,
   chunkFromUrl,
+  chunkFromUrlAsync,
 } from "./resources/chunk/chunk.operations";
 import { systemDescription } from "./resources/system";
 import { healthCheck } from "./resources/system/system.operations";
@@ -115,6 +117,12 @@ export class DoclingServe implements INodeType {
               break;
             case OPERATIONS.CHUNK.CHUNK_FROM_FILE:
               result = await chunkFromFile.call(this, i);
+              break;
+            case OPERATIONS.CHUNK.CHUNK_FROM_URL_ASYNC:
+              result = await chunkFromUrlAsync.call(this, i);
+              break;
+            case OPERATIONS.CHUNK.CHUNK_FROM_FILE_ASYNC:
+              result = await chunkFromFileAsync.call(this, i);
               break;
             default:
               throw new ApplicationError(
