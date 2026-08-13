@@ -70,8 +70,10 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 | Operation | Description |
 | --------- | ----------- |
-| Chunk from URL | Chunk a document from a URL |
 | Chunk from File | Chunk a document from binary data |
+| Chunk from File (Async) | Start async chunking from binary data |
+| Chunk from URL | Chunk a document from a URL |
+| Chunk from URL (Async) | Start async chunking from a URL |
 
 </details>
 
