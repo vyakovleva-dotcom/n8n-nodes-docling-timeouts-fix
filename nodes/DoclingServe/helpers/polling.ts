@@ -38,3 +38,17 @@ export async function getTaskResult(
 ): Promise<unknown> {
   return doclingApiRequest.call(this, "GET", `${ENDPOINTS.RESULT}/${taskId}`);
 }
+
+export async function completeAsyncTask(
+  this: IExecuteFunctions,
+  taskId: string,
+  maxAttempts?: number,
+): Promise<unknown> {
+  const status = await pollUntilComplete.call(this, taskId, maxAttempts);
+
+  if (status.task_status === "failure") {
+    throw new Error(`Task failed: ${taskId}`);
+  }
+
+  return getTaskResult.call(this, taskId);
+}
