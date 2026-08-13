@@ -55,6 +55,25 @@ export const additionalOptionsProperty: INodeProperties = {
   default: {},
   options: [
     {
+      displayName: "Document Timeout",
+      name: "documentTimeout",
+      type: "number",
+      default: 300,
+      typeOptions: {
+        minValue: 1,
+      },
+      description:
+        "Seconds Docling Serve may spend processing the document (server-side document_timeout). Not the HTTP client wait. Use seconds, e.g. 600, not milliseconds like 700000.",
+    },
+    {
+      displayName: "HTTP Request Timeout",
+      name: "requestTimeout",
+      type: "number",
+      default: 0,
+      description:
+        "Milliseconds the HTTP client should wait for the response. 0 uses the default (typically 5 minutes), or Document Timeout plus 60s when that is set.",
+    },
+    {
       displayName: "OCR Engine",
       name: "ocrEngine",
       type: "options",
@@ -70,13 +89,6 @@ export const additionalOptionsProperty: INodeProperties = {
       ],
       default: "easyocr",
       description: "OCR engine to use for scanned documents",
-    },
-    {
-      displayName: "Document Timeout",
-      name: "documentTimeout",
-      type: "number",
-      default: 300,
-      description: "Maximum time in seconds to process the document",
     },
   ],
 };
