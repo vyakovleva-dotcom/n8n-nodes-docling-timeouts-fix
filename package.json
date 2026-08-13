@@ -1,9 +1,9 @@
 {
-	"name": "n8n-nodes-docling-serve",
+	"name": "n8n-nodes-docling-timeouts-fix",
 	"version": "0.0.3",
 	"description": "n8n community node for docling-serve document conversion API",
 	"license": "MIT",
-	"homepage": "https://github.com/hansdoebel/n8n-nodes-docling-serve#readme",
+	"homepage": "https://github.com/vyakovleva-dotcom/n8n-nodes-docling-timeouts-fix#readme",
 	"keywords": [
 		"n8n-community-node-package",
 		"docling",
@@ -12,15 +12,15 @@
 		"markdown"
 	],
 	"author": {
-		"name": "Hans Doebel",
-		"email": "hansdev@mailbox.org"
+		"name": "Valeriia Iakovleva",
+		"email": "melarozz18@gmail.com"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/hansdoebel/n8n-nodes-docling-serve.git"
+		"url": "git+https://github.com/vyakovleva-dotcom/n8n-nodes-docling-timeouts-fix.git"
 	},
 	"bugs": {
-		"url": "https://github.com/hansdoebel/n8n-nodes-docling-serve/issues"
+		"url": "https://github.com/vyakovleva-dotcom/n8n-nodes-docling-timeouts-fix/issues"
 	},
 	"scripts": {
 		"build": "n8n-node build",
@@ -31,16 +31,15 @@
 		"lint:fix": "n8n-node lint --fix",
 		"release": "n8n-node release"
 	},
+	"engines": {
+		"node": ">=22"
+	},
 	"publishConfig": {
 		"access": "public"
 	},
 	"files": [
 		"dist"
 	],
-	"funding": {
-		"type": "buymeacoffee",
-		"url": "https://buymeacoffee.com/hansdoebel"
-	},
 	"n8n": {
 		"n8nNodesApiVersion": 1,
 		"strict": false,
