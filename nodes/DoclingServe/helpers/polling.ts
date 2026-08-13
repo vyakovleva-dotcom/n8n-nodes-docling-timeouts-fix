@@ -7,8 +7,8 @@ import { doclingApiRequest } from "./api";
 export async function pollUntilComplete(
   this: IExecuteFunctions,
   taskId: string,
-  maxAttempts = POLLING.DEFAULT_MAX_ATTEMPTS,
-  intervalMs = POLLING.DEFAULT_INTERVAL_MS,
+  maxAttempts: number = POLLING.DEFAULT_MAX_ATTEMPTS,
+  intervalMs: number = POLLING.DEFAULT_INTERVAL_MS,
 ): Promise<TaskStatusResponse> {
   let attempts = 0;
 
