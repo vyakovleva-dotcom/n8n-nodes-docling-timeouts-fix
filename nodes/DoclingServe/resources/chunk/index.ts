@@ -12,12 +12,12 @@ const showOnlyForChunk = {
 
 const showForChunkUrl = {
 	resource: ['chunk'],
-	operation: ['chunkFromUrl'],
+	operation: ['chunkFromUrl', 'chunkFromUrlAsync'],
 };
 
 const showForChunkFile = {
 	resource: ['chunk'],
-	operation: ['chunkFromFile'],
+	operation: ['chunkFromFile', 'chunkFromFileAsync'],
 };
 
 export const chunkDescription: INodeProperties[] = [
@@ -29,6 +29,7 @@ export const chunkDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForChunk,
 		},
+		// eslint-disable-next-line n8n-nodes-base/node-param-options-type-unsorted-items
 		options: [
 			{
 				name: 'Chunk From URL',
@@ -37,10 +38,22 @@ export const chunkDescription: INodeProperties[] = [
 				description: 'Chunk a document from an HTTP URL',
 			},
 			{
+				name: 'Chunk From URL (Async)',
+				value: 'chunkFromUrlAsync',
+				action: 'Chunk a document from URL asynchronously',
+				description: 'Chunk a document from URL with auto-polling',
+			},
+			{
 				name: 'Chunk From File',
 				value: 'chunkFromFile',
 				action: 'Chunk a document from file',
 				description: 'Chunk a document from binary data',
+			},
+			{
+				name: 'Chunk From File (Async)',
+				value: 'chunkFromFileAsync',
+				action: 'Chunk a document from file asynchronously',
+				description: 'Chunk a document from file with auto-polling',
 			},
 		],
 		default: 'chunkFromUrl',
